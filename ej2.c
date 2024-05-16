@@ -51,6 +51,6 @@ int main(){
     printf("Usando punteros, el valor minimo es: %d\n", minimo);
     printf("Usando punteros, el valor maximo es: %d\n", maximo);
 
-    return 0; 
+    return 0;
 
 }
