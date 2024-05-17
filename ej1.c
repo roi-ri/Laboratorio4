@@ -49,33 +49,34 @@ int main() {
 
     int valor;
     printf("Ingrese un valor entero: ");
-    scanf("%d", &valor);
+    if (scanf("%d", &valor) == 1) {
+        // Búsqueda Lineal
+        int posicion = busquedaLineal(arreglo, longitud, valor);
+        if (posicion != -1) {
+            printf("El valor %d se encuentra en la posición %d (usando búsqueda lineal).\n", valor, posicion + 1);
+        } else {
+            printf("El valor %d no fue encontrado (usando búsqueda lineal).\n", valor);
+        }
 
-    // Busqueda Lineal
-    int posicion = busquedaLineal(arreglo, longitud, valor);
-    if (posicion != -1) {
-        printf("El valor %d se encuentra en la posición %d (usando búsqueda lineal).\n", valor, posicion+1);
+        // Búsqueda Binaria
+        posicion = busquedaBinaria(arreglo, longitud, valor);
+        if (posicion != -1) {
+            printf("El valor %d se encuentra en la posición %d (usando búsqueda binaria).\n", valor, posicion + 1);
+        } else {
+            printf("El valor %d no fue encontrado (usando búsqueda binaria).\n", valor);
+        }
+
+        // Búsqueda Binaria Recursiva
+        posicion = busquedaBinariaRecursiva(arreglo, 0, longitud - 1, valor);
+        if (posicion != -1) {
+            printf("El valor %d se encuentra en la posición %d (usando búsqueda binaria recursiva).\n", valor, posicion + 1);
+        } else {
+            printf("El valor %d no fue encontrado (usando búsqueda binaria recursiva).\n", valor);
+        }
+
+        return 0;
     } else {
-        printf("El valor %d no fue encontrado (usando búsqueda lineal).\n", valor);
+        printf("Ingrese un numero valido.\n");
+        return 1; // Código de error
     }
-
-    // Busqueda Binaria
-    posicion = busquedaBinaria(arreglo, longitud, valor);
-    if (posicion != -1) {
-        printf("El valor %d se encuentra en la posición %d (usando búsqueda binaria).\n", valor, posicion+1);
-    } else {
-        printf("El valor %d no fue encontrado (usando búsqueda binaria).\n", valor);
-    }
-
-    // Busqueda Binaria Recursiva
-    posicion = busquedaBinariaRecursiva(arreglo, 0, longitud - 1, valor);
-    if (posicion != -1) {
-        printf("El valor %d se encuentra en la posición %d (usando búsqueda binaria recursiva).\n", valor, posicion+1);
-    } else {
-        printf("El valor %d no fue encontrado (usando búsqueda binaria recursiva).\n", valor);
-    }
-
-    return 0;
 }
-
-
